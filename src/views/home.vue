@@ -117,7 +117,7 @@
         <!-- Responsive card grid -->
         <div v-else class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
           <router-link 
-            v-for="card in articles"
+            v-for="(card, index) in displayedArticles"
             :key="card.id"
             :to="`/isiMateri/${card.id}`"
             class="card-gradient rounded-xl p-4 md:p-6 card-hover transform transition-all duration-300 hover:shadow-xl"
@@ -218,6 +218,10 @@ const userInitials = computed(() => {
     .map(n => n[0])
     .join('')
     .toUpperCase()
+})
+
+const displayedArticles = computed(() => {
+  return articles.value.slice(0, 6)
 })
 
 // Toggle dropdown
