@@ -27,7 +27,7 @@
           <div class="hidden md:block">
             <div class="ml-6 md:ml-10 flex items-baseline space-x-3 md:space-x-4">
               <router-link to="/home" class="nav-active text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Home</router-link>
-              <router-link to="/kelas" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Kelas</router-link>
+              <router-link to="/kelas" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Materi</router-link>
               <router-link to="/kuis" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Latihan Soal</router-link>
               <router-link to="/aboutme" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">About Me</router-link>
             </div>
