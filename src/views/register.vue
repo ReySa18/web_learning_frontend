@@ -497,6 +497,32 @@ html, body {
 }
 
 /* Responsive adjustments */
+
+@media (min-width: 768px){
+  .glass-effect {
+    padding: 2rem;
+    border-radius: 1rem;
+  }
+
+  .text-2xl {
+    font-size: 1.75rem;
+  }
+
+  .text-sm {
+    font-size: 0.875rem;
+  }
+
+  .input-focus {
+    font-size: 1rem;
+    padding: 0.75rem 1rem;
+  }
+
+  .btn-hover {
+    font-size: 1rem;
+    padding: 0.75rem 1.25rem;
+  }
+}
+
 @media (max-width: 480px) {
   .floating-animation {
     display: none; /* Hide floating elements on small screens */
