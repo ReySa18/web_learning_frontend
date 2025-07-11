@@ -11,7 +11,7 @@
     </div>
 
     <!-- Main Register Container -->
-    <div class="scrollable-container">
+    <div class="scrollable-container w-full max-w-lg max-h-[90vh]">
       <div class="slide-in glass-effect rounded-2xl p-6 sm:p-8 w-full max-w-lg shadow-2xl">
         <!-- Header -->
         <div class="text-center mb-6 sm:mb-8">
@@ -407,6 +407,9 @@ html, body {
   backdrop-filter: blur(10px);
   background: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.2);
+  width: 100%;
+  max-height: 85vh; /* Slightly less than container */
+  overflow-y: auto;
 }
 
 .floating-animation {
@@ -462,12 +465,34 @@ html, body {
     transform: translateY(0);
   }
 }
-
-.scrollable-container {
-  max-height: 100vh;
-  overflow-y: auto;
-  padding: 2rem 1rem;
+/* Enhanced scrollbar styling */
+.glass-effect::-webkit-scrollbar {
+  width: 8px;
 }
+
+.glass-effect::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+}
+
+.glass-effect::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+.glass-effect::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+/* Responsive adjustments */
+@media (max-height: 700px) {
+  .glass-effect {
+    max-height: 80vh;
+  }
+}
+
 
 
 .input-focus {
@@ -506,28 +531,15 @@ html, body {
 
 /* Responsive adjustments */
 
-@media (min-width: 768px){
+@media (max-height: 600px) {
   .glass-effect {
-    padding: 2rem;
-    border-radius: 1rem;
+    max-height: 75vh;
   }
+}
 
-  .text-2xl {
-    font-size: 1.75rem;
-  }
-
-  .text-sm {
-    font-size: 0.875rem;
-  }
-
-  .input-focus {
-    font-size: 1rem;
-    padding: 0.75rem 1rem;
-  }
-
-  .btn-hover {
-    font-size: 1rem;
-    padding: 0.75rem 1.25rem;
+@media (max-height: 500px) {
+  .glass-effect {
+    max-height: 70vh;
   }
 }
 
