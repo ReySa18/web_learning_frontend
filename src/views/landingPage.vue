@@ -28,7 +28,7 @@
           <div class="hidden md:block">
             <div class="ml-6 md:ml-10 flex items-baseline space-x-3 md:space-x-4">
               <a href="#" @click.prevent="showLoginNotification" class="nav-active text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Home</a>
-              <a href="#" @click.prevent="showLoginNotification" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Kelas</a>
+              <a href="#" @click.prevent="showLoginNotification" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Materi</a>
               <a href="#" @click.prevent="showLoginNotification" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Latihan Soal</a>
               <a href="#" @click.prevent="showLoginNotification" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">About Me</a>
             </div>
