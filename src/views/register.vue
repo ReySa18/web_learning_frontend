@@ -213,7 +213,7 @@
         <div class="mt-4 sm:mt-6 text-center">
           <p class="text-xs sm:text-sm text-gray-400">
             Sudah punya akun? 
-            <router-link to="/">
+            <router-link to="/login">
               <button 
                 @click="$emit('go-login')" 
                 class="text-white hover:text-gray-300 font-medium transition-colors underline"
