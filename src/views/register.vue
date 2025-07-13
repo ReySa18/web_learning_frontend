@@ -80,6 +80,8 @@
                 v-model="password"
                 :type="showPassword ? 'text' : 'password'"
                 required
+                @invalid="setPasswordCustomValidity"
+                @input="clearCustomValidity"
                 class="input-focus block w-full pl-10 pr-12 py-2 sm:py-3 text-sm sm:text-base border border-gray-600 rounded-lg bg-gray-800 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white focus:border-transparent"
                 placeholder="Minimal 8 karakter"
                 minlength="8"
@@ -135,6 +137,8 @@
                 v-model="confirmPassword"
                 :type="showConfirmPassword ? 'text' : 'password'"
                 required
+                @invalid="setPasswordCustomValidity"
+                @input="clearCustomValidity"
                 class="input-focus block w-full pl-10 pr-12 py-2 sm:py-3 text-sm sm:text-base border border-gray-600 rounded-lg bg-gray-800 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white focus:border-transparent"
                 placeholder="Ulangi password"
               >
@@ -263,6 +267,20 @@ const notification = ref({
   type: 'success'
 })
 
+const setPasswordCustomValidity = (event) => {
+  if (event.target.validity.valueMissing) {
+    event.target.setCustomValidity('Silakan isi kata sandi Anda.')
+  } else if (event.target.validity.tooShort) {
+    event.target.setCustomValidity('Kata sandi minimal 8 karakter.')
+  } else {
+    event.target.setCustomValidity('')
+  }
+}
+
+const clearCustomValidity = (event) => {
+  event.target.setCustomValidity('')
+}
+  
 // Computed properties
 const passwordsMatch = computed(() => {
   return password.value === confirmPassword.value
