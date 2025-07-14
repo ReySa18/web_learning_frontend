@@ -34,14 +34,13 @@
           </router-link>
 
           <div class="flex items-center">
-            <router-link :to="`/kuis/${materiId}`">
-              <button class="glass-effect text-white px-4 py-1.5 md:px-5 md:py-2 rounded-lg font-medium hover:bg-white hover:text-black transition-all duration-300 text-sm md:text-base flex items-center">
+              <button @click="startQuiz" 
+                class="glass-effect text-white px-4 py-1.5 md:px-5 md:py-2 rounded-lg font-medium hover:bg-white hover:text-black transition-all duration-300 text-sm md:text-base flex items-center">
                 <svg class="w-4 h-4 md:w-5 md:h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
                 </svg>
                 Latihan Soal
               </button>
-            </router-link>
           </div>
         </div>
       </div>
@@ -87,7 +86,7 @@
         <div class="prose prose-invert max-w-none">
           <div v-html="materi.konten"></div>
         </div>
-
+``
         <!-- Tombol download jika ada gambar -->
         <div v-if="materi.gambar" class="mt-6">
           <a
@@ -225,6 +224,19 @@ const formatDate = (date) => {
   return new Date(date).toLocaleDateString('id-ID', {
     year: 'numeric', month: 'long', day: 'numeric'
   })
+}
+
+const startQuiz = () => {
+  const kategoriId = materi.value.kategori?.id
+  const topikId = materi.value.topik?.id
+
+  if (kategoriId && topikId) {
+    router.push({
+      path: `/soal/${kategoriId}/${topikId}`
+    })
+  } else {
+    console.error('Kategori atau Topik ID tidak ditemukan.')
+  }
 }
 
 // Hitung materi dengan kategori yang sama
