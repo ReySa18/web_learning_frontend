@@ -1,5 +1,5 @@
 <template>
-  <div class="gradient-bg">
+  <div class="gradient-bg overflow-x-hidden">
     <!-- Floating animation dots -->
     <div class="fixed inset-0 overflow-hidden pointer-events-none">
       <div class="floating-animation absolute top-[15%] left-[10%] md:top-1/4 md:left-1/4 w-1.5 h-1.5 md:w-2 md:h-2 bg-white rounded-full opacity-20"></div>
