@@ -11,36 +11,39 @@
 
     <!-- Header dengan tombol kembali dan latihan soal -->
     <nav class="glass-effect border-b border-gray-700 sticky top-0 z-50 navbar-height">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
+      <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-full"> <!-- Ubah padding -->
         <div class="flex justify-between items-center h-full">
+          <!-- Tombol Kembali - sembunyikan teks di mobile -->
           <div class="flex items-center">
             <button @click="goBack" class="text-gray-300 hover:text-white flex items-center transition-colors">
-              <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
               </svg>
-              <span class="text-sm">Kembali</span>
+              <span class="hidden sm:inline ml-1 text-sm">Kembali</span> <!-- Sembunyikan di mobile -->
             </button>
           </div>
 
+          <!-- Logo - perkecil di mobile -->
           <router-link to="/home" class="flex items-center">
             <div class="flex-shrink-0 flex items-center">
-              <div class="w-8 h-8 bg-white rounded-lg flex items-center justify-center mr-2 md:mr-3">
-                <svg class="w-5 h-5 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div class="w-6 h-6 sm:w-8 sm:h-8 bg-white rounded-lg flex items-center justify-center mr-1 sm:mr-3"> <!-- Ukuran mobile -->
+                <svg class="w-3 h-3 sm:w-5 sm:h-5 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
                 </svg>
               </div>
-              <span class="text-white text-lg md:text-xl font-bold">Asteria Code</span>
+              <span class="text-white text-sm sm:text-base md:text-xl font-bold">Asteria Code</span> <!-- Ukuran mobile -->
             </div>
           </router-link>
 
+          <!-- Tombol Latihan Soal - hanya tampilkan ikon di mobile -->
           <div class="flex items-center">
-              <button @click="startQuiz" 
-                class="glass-effect text-white px-4 py-1.5 md:px-5 md:py-2 rounded-lg font-medium hover:bg-white hover:text-black transition-all duration-300 text-sm md:text-base flex items-center">
-                <svg class="w-4 h-4 md:w-5 md:h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
-                </svg>
-                Latihan Soal
-              </button>
+            <button @click="startQuiz" 
+              class="glass-effect text-white p-1.5 sm:px-4 sm:py-1.5 md:px-5 md:py-2 rounded-lg font-medium hover:bg-white hover:text-black transition-all duration-300 flex items-center">
+              <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
+              </svg>
+              <span class="hidden sm:inline ml-1 text-sm md:text-base">Latihan Soal</span> <!-- Sembunyikan di mobile -->
+            </button>
           </div>
         </div>
       </div>
@@ -435,6 +438,16 @@ html, body {
   .prose :deep(h1) { font-size: 1.5rem; }
   .prose :deep(h2) { font-size: 1.3rem; }
   .prose :deep(h3) { font-size: 1.15rem; }
+}
+
+@media (max-width: 640px) {
+  .navbar-height {
+    height: 56px; /* Tinggi lebih kecil di mobile */
+  }
+  
+  .main-content-spacing {
+    padding-top: calc(56px + 1rem); /* Sesuaikan dengan tinggi header baru */
+  }
 }
 
 @media (max-width: 480px) {
